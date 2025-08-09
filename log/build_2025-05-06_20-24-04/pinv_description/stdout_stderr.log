@@ -1,0 +1,11 @@
+-- Install configuration: ""
+-- Up-to-date: /home/jose/pinv_ws/install/pinv_description/share/pinv_description/src
+-- Up-to-date: /home/jose/pinv_ws/install/pinv_description/share/pinv_description/src/launch
+-- Up-to-date: /home/jose/pinv_ws/install/pinv_description/share/pinv_description/src/launch/display.launch.py
+[31mCMake Error at cmake_install.cmake:46 (file):
+  file INSTALL cannot find "/home/jose/pinv_ws/src/pinv_description/launch":
+  No such file or directory.
+
+[0m
+-- Up-to-date: /home/jose/pinv_ws/install/pinv_description/share/pinv_description/src/description
+-- Up-to-date: /home/jose/pinv_ws/install/pinv_description/share/pinv_description/src/description/pinv.urdf

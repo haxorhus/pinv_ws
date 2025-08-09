@@ -1,0 +1,21 @@
+-- Install configuration: ""
+-- Up-to-date: /home/jose/pinv_ws/install/pinv_description/share/pinv_description/src
+-- Installing: /home/jose/pinv_ws/install/pinv_description/share/pinv_description/launch
+-- Installing: /home/jose/pinv_ws/install/pinv_description/share/pinv_description/launch/display.launch.py
+-- Installing: /home/jose/pinv_ws/install/pinv_description/share/pinv_description/rviz
+-- Installing: /home/jose/pinv_ws/install/pinv_description/share/pinv_description/rviz/config.rviz
+-- Installing: /home/jose/pinv_ws/install/pinv_description/share/ament_index/resource_index/package_run_dependencies/pinv_description
+-- Installing: /home/jose/pinv_ws/install/pinv_description/share/ament_index/resource_index/parent_prefix_path/pinv_description
+-- Installing: /home/jose/pinv_ws/install/pinv_description/share/pinv_description/environment/ament_prefix_path.sh
+-- Installing: /home/jose/pinv_ws/install/pinv_description/share/pinv_description/environment/ament_prefix_path.dsv
+-- Installing: /home/jose/pinv_ws/install/pinv_description/share/pinv_description/environment/path.sh
+-- Installing: /home/jose/pinv_ws/install/pinv_description/share/pinv_description/environment/path.dsv
+-- Installing: /home/jose/pinv_ws/install/pinv_description/share/pinv_description/local_setup.bash
+-- Installing: /home/jose/pinv_ws/install/pinv_description/share/pinv_description/local_setup.sh
+-- Installing: /home/jose/pinv_ws/install/pinv_description/share/pinv_description/local_setup.zsh
+-- Installing: /home/jose/pinv_ws/install/pinv_description/share/pinv_description/local_setup.dsv
+-- Up-to-date: /home/jose/pinv_ws/install/pinv_description/share/pinv_description/package.dsv
+-- Installing: /home/jose/pinv_ws/install/pinv_description/share/ament_index/resource_index/packages/pinv_description
+-- Installing: /home/jose/pinv_ws/install/pinv_description/share/pinv_description/cmake/pinv_descriptionConfig.cmake
+-- Installing: /home/jose/pinv_ws/install/pinv_description/share/pinv_description/cmake/pinv_descriptionConfig-version.cmake
+-- Installing: /home/jose/pinv_ws/install/pinv_description/share/pinv_description/package.xml

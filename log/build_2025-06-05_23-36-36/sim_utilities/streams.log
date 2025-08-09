@@ -1,0 +1,17 @@
+[0.629s] Invoking command in '/home/jose/pinv_ws/src/sim_utilities': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/jose/pinv_ws/build/sim_utilities/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jose/pinv_ws/install/sim_utilities/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/sim_utilities build --build-base /home/jose/pinv_ws/build/sim_utilities/build install --record /home/jose/pinv_ws/build/sim_utilities/install.log --single-version-externally-managed install_data
+[0.833s] running egg_info
+[0.848s] writing ../../build/sim_utilities/sim_utilities.egg-info/PKG-INFO
+[0.848s] writing dependency_links to ../../build/sim_utilities/sim_utilities.egg-info/dependency_links.txt
+[0.848s] writing entry points to ../../build/sim_utilities/sim_utilities.egg-info/entry_points.txt
+[0.848s] writing requirements to ../../build/sim_utilities/sim_utilities.egg-info/requires.txt
+[0.849s] writing top-level names to ../../build/sim_utilities/sim_utilities.egg-info/top_level.txt
+[0.879s] reading manifest file '../../build/sim_utilities/sim_utilities.egg-info/SOURCES.txt'
+[0.879s] writing manifest file '../../build/sim_utilities/sim_utilities.egg-info/SOURCES.txt'
+[0.879s] running build
+[0.879s] running build_py
+[0.880s] running install
+[0.884s] running install_lib
+[0.900s] running install_data
+[0.900s] creating /home/jose/pinv_ws/install/sim_utilities/share/sim_utilities/launch
+[0.901s] error: can't copy 'launch/__pycache__': doesn't exist or not a regular file
+[0.919s] Invoked command in '/home/jose/pinv_ws/src/sim_utilities' returned '1': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/jose/pinv_ws/build/sim_utilities/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jose/pinv_ws/install/sim_utilities/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/sim_utilities build --build-base /home/jose/pinv_ws/build/sim_utilities/build install --record /home/jose/pinv_ws/build/sim_utilities/install.log --single-version-externally-managed install_data

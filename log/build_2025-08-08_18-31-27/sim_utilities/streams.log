@@ -1,0 +1,29 @@
+[0.804s] Invoking command in '/home/jose/pinv_ws/src/sim_utilities': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/jose/pinv_ws/build/sim_utilities/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jose/pinv_ws/install/sim_utilities/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/sim_utilities build --build-base /home/jose/pinv_ws/build/sim_utilities/build install --record /home/jose/pinv_ws/build/sim_utilities/install.log --single-version-externally-managed install_data
+[1.006s] running egg_info
+[1.021s] writing ../../build/sim_utilities/sim_utilities.egg-info/PKG-INFO
+[1.021s] writing dependency_links to ../../build/sim_utilities/sim_utilities.egg-info/dependency_links.txt
+[1.021s] writing entry points to ../../build/sim_utilities/sim_utilities.egg-info/entry_points.txt
+[1.021s] writing requirements to ../../build/sim_utilities/sim_utilities.egg-info/requires.txt
+[1.021s] writing top-level names to ../../build/sim_utilities/sim_utilities.egg-info/top_level.txt
+[1.052s] reading manifest file '../../build/sim_utilities/sim_utilities.egg-info/SOURCES.txt'
+[1.052s] writing manifest file '../../build/sim_utilities/sim_utilities.egg-info/SOURCES.txt'
+[1.052s] running build
+[1.053s] running build_py
+[1.053s] copying sim_utilities/cmd_translator.py -> /home/jose/pinv_ws/build/sim_utilities/build/lib/sim_utilities
+[1.053s] running install
+[1.058s] running install_lib
+[1.073s] copying /home/jose/pinv_ws/build/sim_utilities/build/lib/sim_utilities/cmd_translator.py -> /home/jose/pinv_ws/install/sim_utilities/lib/python3.12/site-packages/sim_utilities
+[1.073s] byte-compiling /home/jose/pinv_ws/install/sim_utilities/lib/python3.12/site-packages/sim_utilities/cmd_translator.py to cmd_translator.cpython-312.pyc
+[1.074s] running install_data
+[1.074s] copying launch/sim_utils_launch.py -> /home/jose/pinv_ws/install/sim_utilities/share/sim_utilities/launch
+[1.074s] copying config/nav2_params.yaml -> /home/jose/pinv_ws/install/sim_utilities/share/sim_utilities/config
+[1.074s] running install_egg_info
+[1.091s] removing '/home/jose/pinv_ws/install/sim_utilities/lib/python3.12/site-packages/sim_utilities-0.0.0-py3.12.egg-info' (and everything under it)
+[1.091s] Copying ../../build/sim_utilities/sim_utilities.egg-info to /home/jose/pinv_ws/install/sim_utilities/lib/python3.12/site-packages/sim_utilities-0.0.0-py3.12.egg-info
+[1.092s] running install_scripts
+[1.199s] Installing cmd_node script to /home/jose/pinv_ws/install/sim_utilities/lib/sim_utilities
+[1.200s] Installing cmd_translator_node script to /home/jose/pinv_ws/install/sim_utilities/lib/sim_utilities
+[1.200s] Installing empty_map_pub script to /home/jose/pinv_ws/install/sim_utilities/lib/sim_utilities
+[1.200s] Installing republisher script to /home/jose/pinv_ws/install/sim_utilities/lib/sim_utilities
+[1.200s] writing list of installed files to '/home/jose/pinv_ws/build/sim_utilities/install.log'
+[1.226s] Invoked command in '/home/jose/pinv_ws/src/sim_utilities' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/jose/pinv_ws/build/sim_utilities/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jose/pinv_ws/install/sim_utilities/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/sim_utilities build --build-base /home/jose/pinv_ws/build/sim_utilities/build install --record /home/jose/pinv_ws/build/sim_utilities/install.log --single-version-externally-managed install_data

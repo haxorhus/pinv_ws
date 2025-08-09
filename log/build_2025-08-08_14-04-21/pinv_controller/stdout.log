@@ -1,0 +1,30 @@
+running egg_info
+creating ../../build/pinv_controller/pinv_controller.egg-info
+writing ../../build/pinv_controller/pinv_controller.egg-info/PKG-INFO
+writing dependency_links to ../../build/pinv_controller/pinv_controller.egg-info/dependency_links.txt
+writing requirements to ../../build/pinv_controller/pinv_controller.egg-info/requires.txt
+writing top-level names to ../../build/pinv_controller/pinv_controller.egg-info/top_level.txt
+writing manifest file '../../build/pinv_controller/pinv_controller.egg-info/SOURCES.txt'
+reading manifest file '../../build/pinv_controller/pinv_controller.egg-info/SOURCES.txt'
+writing manifest file '../../build/pinv_controller/pinv_controller.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/jose/pinv_ws/build/pinv_controller/build
+creating /home/jose/pinv_ws/build/pinv_controller/build/lib
+creating /home/jose/pinv_ws/build/pinv_controller/build/lib/pinv_controller
+copying pinv_controller/__init__.py -> /home/jose/pinv_ws/build/pinv_controller/build/lib/pinv_controller
+running install
+running install_lib
+creating /home/jose/pinv_ws/install/pinv_controller/lib/python3.12/site-packages/pinv_controller
+copying /home/jose/pinv_ws/build/pinv_controller/build/lib/pinv_controller/__init__.py -> /home/jose/pinv_ws/install/pinv_controller/lib/python3.12/site-packages/pinv_controller
+byte-compiling /home/jose/pinv_ws/install/pinv_controller/lib/python3.12/site-packages/pinv_controller/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /home/jose/pinv_ws/install/pinv_controller/share/ament_index
+creating /home/jose/pinv_ws/install/pinv_controller/share/ament_index/resource_index
+creating /home/jose/pinv_ws/install/pinv_controller/share/ament_index/resource_index/packages
+copying resource/pinv_controller -> /home/jose/pinv_ws/install/pinv_controller/share/ament_index/resource_index/packages
+copying package.xml -> /home/jose/pinv_ws/install/pinv_controller/share/pinv_controller
+running install_egg_info
+Copying ../../build/pinv_controller/pinv_controller.egg-info to /home/jose/pinv_ws/install/pinv_controller/lib/python3.12/site-packages/pinv_controller-0.0.0-py3.12.egg-info
+running install_scripts
+writing list of installed files to '/home/jose/pinv_ws/build/pinv_controller/install.log'

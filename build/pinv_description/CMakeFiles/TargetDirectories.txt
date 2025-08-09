@@ -1,0 +1,9 @@
+/home/jose/pinv_ws/build/pinv_description/CMakeFiles/uninstall.dir
+/home/jose/pinv_ws/build/pinv_description/CMakeFiles/pinv_description_uninstall.dir
+/home/jose/pinv_ws/build/pinv_description/CMakeFiles/test.dir
+/home/jose/pinv_ws/build/pinv_description/CMakeFiles/edit_cache.dir
+/home/jose/pinv_ws/build/pinv_description/CMakeFiles/rebuild_cache.dir
+/home/jose/pinv_ws/build/pinv_description/CMakeFiles/list_install_components.dir
+/home/jose/pinv_ws/build/pinv_description/CMakeFiles/install.dir
+/home/jose/pinv_ws/build/pinv_description/CMakeFiles/install/local.dir
+/home/jose/pinv_ws/build/pinv_description/CMakeFiles/install/strip.dir

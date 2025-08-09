@@ -1,0 +1,16 @@
+[0.639s] Invoking command in '/home/jose/pinv_ws/src/sim_utilities': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/jose/pinv_ws/build/sim_utilities/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jose/pinv_ws/install/sim_utilities/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/sim_utilities build --build-base /home/jose/pinv_ws/build/sim_utilities/build install --record /home/jose/pinv_ws/build/sim_utilities/install.log --single-version-externally-managed install_data
+[0.840s] running egg_info
+[0.855s] writing ../../build/sim_utilities/sim_utilities.egg-info/PKG-INFO
+[0.856s] writing dependency_links to ../../build/sim_utilities/sim_utilities.egg-info/dependency_links.txt
+[0.856s] writing entry points to ../../build/sim_utilities/sim_utilities.egg-info/entry_points.txt
+[0.856s] writing requirements to ../../build/sim_utilities/sim_utilities.egg-info/requires.txt
+[0.856s] writing top-level names to ../../build/sim_utilities/sim_utilities.egg-info/top_level.txt
+[0.885s] reading manifest file '../../build/sim_utilities/sim_utilities.egg-info/SOURCES.txt'
+[0.886s] writing manifest file '../../build/sim_utilities/sim_utilities.egg-info/SOURCES.txt'
+[0.886s] running build
+[0.886s] running build_py
+[0.886s] running install
+[0.891s] running install_lib
+[0.907s] running install_data
+[0.907s] error: can't copy 'launch/__pycache__': doesn't exist or not a regular file
+[0.922s] Invoked command in '/home/jose/pinv_ws/src/sim_utilities' returned '1': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/jose/pinv_ws/build/sim_utilities/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jose/pinv_ws/install/sim_utilities/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/sim_utilities build --build-base /home/jose/pinv_ws/build/sim_utilities/build install --record /home/jose/pinv_ws/build/sim_utilities/install.log --single-version-externally-managed install_data
