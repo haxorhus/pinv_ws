@@ -1,11 +1,12 @@
-navsat_transform_node:
+# La clave debe coincidir con name='navsat_transform' del launch
+navsat_transform:
     ros__parameters:
         magnetic_declination_radians: 0.0
         publish_filtered_gps: True
         wait_for_datum: False
-        zero_altitude: False
-        yaw_offset: 1.0
-        use_odometry_yaw: True
+        zero_altitude: true
+        yaw_offset: 1.57
+        use_odometry_yaw: true
         delay: 0.0
         frequency: 30.0
         broadcast_utm_transform: True

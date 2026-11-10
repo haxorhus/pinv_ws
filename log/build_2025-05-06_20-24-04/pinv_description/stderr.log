@@ -1,5 +1,0 @@
-[31mCMake Error at cmake_install.cmake:46 (file):
-  file INSTALL cannot find "/home/jose/pinv_ws/src/pinv_description/launch":
-  No such file or directory.
-
-[0m

@@ -10,7 +10,7 @@ class CmdVelNode(Node):
         
         # Subscriber para cmd_vel
         self.subscription = self.create_subscription(
-            TwistStamped,
+            Twist,
             '/cmd_vel_nav',
             self.cmd_vel_callback,
             10)
@@ -25,8 +25,8 @@ class CmdVelNode(Node):
 
     def cmd_vel_callback(self, msg):
         # Conversión de cmd_vel a thrusters (modelo diferencial)
-        linear_x = msg.twist.linear.x
-        angular_z = msg.twist.angular.z
+        linear_x = msg.linear.x
+        angular_z = msg.angular.z
         
         # nuevo cmd
         cmd_vel_new = Twist()

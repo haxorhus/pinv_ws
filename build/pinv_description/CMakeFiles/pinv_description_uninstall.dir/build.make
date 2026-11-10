@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jose/pinv_ws/src/pinv_description
+CMAKE_SOURCE_DIR = /home/pinv/pinv_ws/src/pinv_description
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jose/pinv_ws/build/pinv_description
+CMAKE_BINARY_DIR = /home/pinv/pinv_ws/build/pinv_description
 
 # Utility rule file for pinv_description_uninstall.
 
@@ -67,7 +67,7 @@ include CMakeFiles/pinv_description_uninstall.dir/compiler_depend.make
 include CMakeFiles/pinv_description_uninstall.dir/progress.make
 
 CMakeFiles/pinv_description_uninstall:
-	/usr/bin/cmake -P /home/jose/pinv_ws/build/pinv_description/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
+	/usr/bin/cmake -P /home/pinv/pinv_ws/build/pinv_description/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
 
 pinv_description_uninstall: CMakeFiles/pinv_description_uninstall
 pinv_description_uninstall: CMakeFiles/pinv_description_uninstall.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/pinv_description_uninstall.dir/clean:
 .PHONY : CMakeFiles/pinv_description_uninstall.dir/clean
 
 CMakeFiles/pinv_description_uninstall.dir/depend:
-	cd /home/jose/pinv_ws/build/pinv_description && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jose/pinv_ws/src/pinv_description /home/jose/pinv_ws/src/pinv_description /home/jose/pinv_ws/build/pinv_description /home/jose/pinv_ws/build/pinv_description /home/jose/pinv_ws/build/pinv_description/CMakeFiles/pinv_description_uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/pinv/pinv_ws/build/pinv_description && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pinv/pinv_ws/src/pinv_description /home/pinv/pinv_ws/src/pinv_description /home/pinv/pinv_ws/build/pinv_description /home/pinv/pinv_ws/build/pinv_description /home/pinv/pinv_ws/build/pinv_description/CMakeFiles/pinv_description_uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/pinv_description_uninstall.dir/depend
 

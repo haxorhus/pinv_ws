@@ -1,19 +1,8 @@
-navsat_transform_node:
-    ros__parameters:
-        magnetic_declination_radians: 0.0
-        publish_filtered_gps: True
-        wait_for_datum: False
-        zero_altitude: False
-        yaw_offset: 1.0
-        use_odometry_yaw: True
-        delay: 0.0
-        frequency: 10.0
-        broadcast_utm_transform: True
-    
+# La configuración de navsat_transform está en navsat_transform.yaml
 
 ekf_filter_node:
   ros__parameters:
-    frequency: 10.0
+    frequency: 30.0
     sensor_timeout: 2.0
     two_d_mode: true
     print_diagnostics: true
@@ -43,3 +32,11 @@ ekf_filter_node:
                    true, true, true]
     odom0_differential: false
     odom0_queue_size: 10
+
+    use_control: false
+    stamped_control: false
+    control_config: [true, false, false, false, false, true]
+    acceleration_limits: [2.5, 0.0, 0.0, 0.0, 0.0, 3.2]
+    deceleration_limits: [2.5, 0.0, 0.0, 0.0, 0.0, 3.2]
+    acceleration_gains: [1.0, 0.0, 0.0, 0.0, 0.0, 0.9]
+    deceleration_gains: [0.8, 0.0, 0.0, 0.0, 0.0, 1.0]

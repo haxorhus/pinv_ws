@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jose/pinv_ws/src/pinv_description
+CMAKE_SOURCE_DIR = /home/pinv/pinv_ws/src/pinv_description
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jose/pinv_ws/build/pinv_description
+CMAKE_BINARY_DIR = /home/pinv/pinv_ws/build/pinv_description
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -142,9 +142,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jose/pinv_ws/build/pinv_description/CMakeFiles /home/jose/pinv_ws/build/pinv_description//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pinv/pinv_ws/build/pinv_description/CMakeFiles /home/pinv/pinv_ws/build/pinv_description//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jose/pinv_ws/build/pinv_description/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pinv/pinv_ws/build/pinv_description/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

@@ -8,6 +8,8 @@ import tf2_ros
 import cv2
 import numpy as np
 import yaml
+import os
+from ament_index_python.packages import get_package_share_directory
 
 class MapPublisher(Node):
     def __init__(self):
@@ -18,14 +20,22 @@ class MapPublisher(Node):
         qos_profile.durability = QoSDurabilityPolicy.TRANSIENT_LOCAL
 
         # Cargar el mapa de ocupación desde un archivo .pgm
-        self.map_file = "/home/jose/pinv_ws/src/maps/map.pgm"
-        self.map_yaml_file = "/home/jose/pinv_ws/src/maps/map.yaml"
-        
+        # Por defecto usa el mapa instalado con el paquete (share/sim_utilities/maps/map.yaml).
+        # Se puede cambiar con: --ros-args -p map_yaml:=/ruta/a/otro_mapa.yaml
+        default_yaml = os.path.join(
+            get_package_share_directory('sim_utilities'), 'maps', 'map.yaml')
+        self.map_yaml_file = self.declare_parameter('map_yaml', default_yaml).value
+                
         # Leer el archivo YAML para obtener metadata
         with open(self.map_yaml_file, 'r') as file:
             map_metadata = yaml.safe_load(file)
             self.resolution = map_metadata['resolution']
             self.origin = map_metadata['origin']
+            # La imagen (.pgm) se resuelve relativa a la carpeta del YAML
+            image = map_metadata['image']
+            if not os.path.isabs(image):
+                image = os.path.join(os.path.dirname(self.map_yaml_file), image)
+            self.map_file = image
         
         # Crear un publicador de mapas
         self.publisher_ = self.create_publisher(OccupancyGrid, 'map', qos_profile)
@@ -37,7 +47,7 @@ class MapPublisher(Node):
         self.publish_static_transform()
         
         # Timer para publicar el mapa a intervalos
-        self.timer = self.create_timer(10.0, self.timer_callback)
+        self.timer = self.create_timer(5.0, self.timer_callback)
         
         self.get_logger().info("Nodo MapPublisher iniciado. Publicando mapa...")
 
@@ -51,8 +61,8 @@ class MapPublisher(Node):
         transform_msg.child_frame_id = "odom"
         
         # Posición y orientación de la transformada estática
-        transform_msg.transform.translation.x = 0.0
-        transform_msg.transform.translation.y = 0.0
+        transform_msg.transform.translation.x = 20.0
+        transform_msg.transform.translation.y = 20.0
         transform_msg.transform.translation.z = 0.0
         transform_msg.transform.rotation.x = 0.0
         transform_msg.transform.rotation.y = 0.0

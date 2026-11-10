@@ -2,6 +2,15 @@ from launch import LaunchDescription
 from launch.substitutions import LaunchConfiguration
 from launch.actions import DeclareLaunchArgument
 from launch_ros.actions import Node
+from ament_index_python.packages import get_package_share_directory
+import os
+
+# Rutas relativas al paquete instalado (independiente del usuario / máquina)
+CONFIG_DIR = os.path.join(get_package_share_directory('sim_utilities'), 'config')
+SENSOR_CONFIG_YAML = os.path.join(CONFIG_DIR, 'sensor_config.yaml')
+EKF_YAML = os.path.join(CONFIG_DIR, 'ekf.yaml')
+NAVSAT_TRANSFORM_YAML = os.path.join(CONFIG_DIR, 'navsat_transform.yaml')
+NAV2_PARAMS_YAML = os.path.join(CONFIG_DIR, 'nav2_params.yaml')
 
 def generate_launch_description():
     return LaunchDescription([
@@ -9,7 +18,7 @@ def generate_launch_description():
         Node(
             package='sim_utilities',
             executable='republisher',
-            parameters=['/home/jose/pinv_ws/src/sim_utilities/config/sensor_config.yaml']
+            parameters=[SENSOR_CONFIG_YAML]
         ),
         #cmd translator node
         Node(
@@ -38,7 +47,7 @@ def generate_launch_description():
             package='robot_localization',
             executable='ekf_node',
             name='ekf_filter_node',
-            parameters=['/home/jose/pinv_ws/src/sim_utilities/config/ekf.yaml'],
+            parameters=[EKF_YAML],
             remappings=[
                 ("/odometry/filtered", "/localization/odometry"),
                 ("/odometry/gps", "/odometry/gps2")]        
@@ -50,7 +59,7 @@ def generate_launch_description():
             executable='navsat_transform_node',
             name='navsat_transform',
             respawn=True,
-            parameters=['/home/jose/pinv_ws/src/sim_utilities/config/navsat_transform.yaml'],
+            parameters=[NAVSAT_TRANSFORM_YAML],
             remappings=[
             ('/imu', '/navsat/imu'),
             ('/gps/fix', '/navsat/gps'),

@@ -1,1 +1,0 @@
-Invoking command in '/home/jose/pinv_ws/build/pinv_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jose/pinv_ws/install/pinv_controller:/home/jose/pinv_ws/install/sim_utilities:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/jose/pinv_ws/build/pinv_description -- -j16 -l16

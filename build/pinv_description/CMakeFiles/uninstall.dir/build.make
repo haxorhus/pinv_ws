@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jose/pinv_ws/src/pinv_description
+CMAKE_SOURCE_DIR = /home/pinv/pinv_ws/src/pinv_description
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jose/pinv_ws/build/pinv_description
+CMAKE_BINARY_DIR = /home/pinv/pinv_ws/build/pinv_description
 
 # Utility rule file for uninstall.
 
@@ -78,6 +78,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /home/jose/pinv_ws/build/pinv_description && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jose/pinv_ws/src/pinv_description /home/jose/pinv_ws/src/pinv_description /home/jose/pinv_ws/build/pinv_description /home/jose/pinv_ws/build/pinv_description /home/jose/pinv_ws/build/pinv_description/CMakeFiles/uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/pinv/pinv_ws/build/pinv_description && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pinv/pinv_ws/src/pinv_description /home/pinv/pinv_ws/src/pinv_description /home/pinv/pinv_ws/build/pinv_description /home/pinv/pinv_ws/build/pinv_description /home/pinv/pinv_ws/build/pinv_description/CMakeFiles/uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/uninstall.dir/depend
 

@@ -1,8 +1,8 @@
-# Install script for directory: /home/jose/pinv_ws/src/pinv_description
+# Install script for directory: /home/pinv/pinv_ws/src/pinv_description
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/jose/pinv_ws/install/pinv_description")
+  set(CMAKE_INSTALL_PREFIX "/home/pinv/pinv_ws/install/pinv_description")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -44,18 +44,18 @@ endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pinv_description" TYPE DIRECTORY FILES
-    "/home/jose/pinv_ws/src/pinv_description/src"
-    "/home/jose/pinv_ws/src/pinv_description/launch"
-    "/home/jose/pinv_ws/src/pinv_description/rviz"
+    "/home/pinv/pinv_ws/src/pinv_description/src"
+    "/home/pinv/pinv_ws/src/pinv_description/launch"
+    "/home/pinv/pinv_ws/src/pinv_description/rviz"
     )
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/jose/pinv_ws/build/pinv_description/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/pinv_description")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/pinv/pinv_ws/build/pinv_description/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/pinv_description")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/jose/pinv_ws/build/pinv_description/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/pinv_description")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/pinv/pinv_ws/build/pinv_description/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/pinv_description")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -63,7 +63,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pinv_description/environment" TYPE FILE FILES "/home/jose/pinv_ws/build/pinv_description/ament_cmake_environment_hooks/ament_prefix_path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pinv_description/environment" TYPE FILE FILES "/home/pinv/pinv_ws/build/pinv_description/ament_cmake_environment_hooks/ament_prefix_path.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -71,42 +71,42 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pinv_description/environment" TYPE FILE FILES "/home/jose/pinv_ws/build/pinv_description/ament_cmake_environment_hooks/path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pinv_description/environment" TYPE FILE FILES "/home/pinv/pinv_ws/build/pinv_description/ament_cmake_environment_hooks/path.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pinv_description" TYPE FILE FILES "/home/jose/pinv_ws/build/pinv_description/ament_cmake_environment_hooks/local_setup.bash")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pinv_description" TYPE FILE FILES "/home/pinv/pinv_ws/build/pinv_description/ament_cmake_environment_hooks/local_setup.bash")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pinv_description" TYPE FILE FILES "/home/jose/pinv_ws/build/pinv_description/ament_cmake_environment_hooks/local_setup.sh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pinv_description" TYPE FILE FILES "/home/pinv/pinv_ws/build/pinv_description/ament_cmake_environment_hooks/local_setup.sh")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pinv_description" TYPE FILE FILES "/home/jose/pinv_ws/build/pinv_description/ament_cmake_environment_hooks/local_setup.zsh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pinv_description" TYPE FILE FILES "/home/pinv/pinv_ws/build/pinv_description/ament_cmake_environment_hooks/local_setup.zsh")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pinv_description" TYPE FILE FILES "/home/jose/pinv_ws/build/pinv_description/ament_cmake_environment_hooks/local_setup.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pinv_description" TYPE FILE FILES "/home/pinv/pinv_ws/build/pinv_description/ament_cmake_environment_hooks/local_setup.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pinv_description" TYPE FILE FILES "/home/jose/pinv_ws/build/pinv_description/ament_cmake_environment_hooks/package.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pinv_description" TYPE FILE FILES "/home/pinv/pinv_ws/build/pinv_description/ament_cmake_environment_hooks/package.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/jose/pinv_ws/build/pinv_description/ament_cmake_index/share/ament_index/resource_index/packages/pinv_description")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/pinv/pinv_ws/build/pinv_description/ament_cmake_index/share/ament_index/resource_index/packages/pinv_description")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pinv_description/cmake" TYPE FILE FILES
-    "/home/jose/pinv_ws/build/pinv_description/ament_cmake_core/pinv_descriptionConfig.cmake"
-    "/home/jose/pinv_ws/build/pinv_description/ament_cmake_core/pinv_descriptionConfig-version.cmake"
+    "/home/pinv/pinv_ws/build/pinv_description/ament_cmake_core/pinv_descriptionConfig.cmake"
+    "/home/pinv/pinv_ws/build/pinv_description/ament_cmake_core/pinv_descriptionConfig-version.cmake"
     )
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pinv_description" TYPE FILE FILES "/home/jose/pinv_ws/src/pinv_description/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pinv_description" TYPE FILE FILES "/home/pinv/pinv_ws/src/pinv_description/package.xml")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -117,5 +117,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/jose/pinv_ws/build/pinv_description/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/pinv/pinv_ws/build/pinv_description/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

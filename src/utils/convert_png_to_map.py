@@ -1,13 +1,16 @@
+import os
+# Carpeta src/ del workspace, relativa a este script
+WS_SRC = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 import numpy as np
 import cv2
 import math
 import os.path
  
-strSrcFileName = "/home/jose/pinv_ws/src/img/map.png"
+strSrcFileName = os.path.join(WS_SRC, "img", "map.png")
 image = cv2.imread(strSrcFileName)
 
 strDstFileName = "map"
-strDstLocation = "/home/jose/pinv_ws/src/maps/"
+strDstLocation = os.path.join(WS_SRC, "maps") + "/"
 
 # We scale the map, so it is 10 meters wide
 img_width_meters = 100

@@ -3,3 +3,4 @@ cmd_node = sim_utilities.cmd_node:main
 cmd_translator_node = sim_utilities.cmd_translator:main
 empty_map_pub = sim_utilities.empty_map_pub:main
 republisher = sim_utilities.republisher_node:main
+transform_pub = sim_utilities.transform_pub:main
