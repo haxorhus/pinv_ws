@@ -1,0 +1,24 @@
+# navsat_transform: convierte /gps/fix en /odometry/gps (frame odom).
+#
+# El origen de odom es la posición del bote cuando llega el primer fix con el
+# EKF ya corriendo (wait_for_datum: false). Así "objetivos en metros desde la
+# posición inicial" sale directo.
+
+navsat_transform:
+  ros__parameters:
+    frequency: 10.0
+    delay: 0.0
+
+    # El yaw de la IMU tiene que llegar en ENU (0 = este, antihorario +).
+    # Si el ESP32 ya lo entrega en ENU, el offset es 0.
+    yaw_offset: 0.0
+
+    # PENDIENTE: declinación magnética del lago, en radianes (este +, oeste -).
+    # Calcularla con el modelo WMM (NOAA) para la fecha y el lugar de las pruebas.
+    magnetic_declination_radians: 0.0
+
+    zero_altitude: true
+    use_odometry_yaw: false
+    wait_for_datum: false
+    publish_filtered_gps: true
+    broadcast_cartesian_transform: false

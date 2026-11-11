@@ -1,0 +1,10 @@
+# Mapa vacío de 400 x 400 m a 1 m/celda, todo libre (área de agua abierta).
+# El origen (0, 0) cae en el centro: el bote puede ir hasta ±200 m en x e y
+# desde donde arranca. Si el lago exige más, regenerar con otro tamaño.
+image: empty_400m.pgm
+mode: trinary
+resolution: 1.0
+origin: [-200.0, -200.0, 0.0]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.25

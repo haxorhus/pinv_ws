@@ -1,0 +1,49 @@
+# EKF único en el frame odom (robot_localization).
+#
+# Publica odom -> base_link y /odometry/filtered.
+# Entradas (contrato con el hardware):
+#   /imu/data      sensor_msgs/Imu    ESP32, frame imu_link, orientación en ENU
+#   /odometry/gps  nav_msgs/Odometry  navsat_transform a partir de /gps/fix
+#
+# Decisión: un solo EKF que fusiona el GPS directamente en odom. Con un fix RTK
+# nuevo odom -> base_link puede saltar (REP-105 pide odom continuo). En un área
+# libre y sin sensores locales (ruedas, DVL) es aceptable y mucho más simple
+# que dos EKF; map -> odom queda como identidad (ver localization.launch.py).
+
+ekf_filter_node:
+  ros__parameters:
+    frequency: 30.0
+    sensor_timeout: 0.5
+    two_d_mode: true
+    publish_tf: true
+    publish_acceleration: false
+    print_diagnostics: true
+
+    map_frame: map
+    odom_frame: odom
+    base_link_frame: base_link
+    world_frame: odom
+
+    # Orden: [x, y, z, roll, pitch, yaw, vx, vy, vz, vroll, vpitch, vyaw, ax, ay, az]
+
+    # IMU: rumbo absoluto (ENU) y velocidad de giro. Roll/pitch no se usan en 2D.
+    imu0: /imu/data
+    imu0_config: [false, false, false,
+                  false, false, true,
+                  false, false, false,
+                  false, false, true,
+                  false, false, false]
+    imu0_differential: false
+    imu0_relative: false
+    imu0_queue_size: 10
+
+    # GPS (vía navsat_transform): solo posición x, y. Esa odometría no mide
+    # rumbo ni velocidades, fusionarlas mete ruido.
+    odom0: /odometry/gps
+    odom0_config: [true, true, false,
+                   false, false, false,
+                   false, false, false,
+                   false, false, false,
+                   false, false, false]
+    odom0_differential: false
+    odom0_queue_size: 10

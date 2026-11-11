@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!--
+  Catamarán del ASV PINV (~2 x 1 m), dos motores diferenciales.
+
+  Convenciones (REP-103 / REP-105):
+    - base_link en el centro del bote, a la altura de la línea de flotación.
+    - x hacia proa, y hacia babor (izquierda), z hacia arriba.
+
+  PENDIENTE: medir en el bote real las posiciones marcadas con "MEDIR".
+  navsat_transform usa base_link -> gps_link para compensar el brazo de
+  palanca de la antena, así que un valor mal cargado desplaza la posición.
+-->
+<robot name="pinv" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Casco -->
+  <xacro:property name="hull_length" value="2.0"/>
+  <xacro:property name="hull_width" value="0.25"/>
+  <xacro:property name="hull_height" value="0.25"/>
+  <xacro:property name="beam" value="1.0"/>        <!-- ancho total -->
+  <xacro:property name="deck_height" value="0.05"/>
+
+  <!-- Motores: distancia entre ejes = WHEEL_SEPARATION del firmware. MEDIR -->
+  <xacro:property name="motor_separation" value="0.75"/>
+  <xacro:property name="motor_x" value="${-hull_length / 2}"/>
+
+  <!-- Sensores respecto de base_link [m]. MEDIR -->
+  <xacro:property name="imu_x" value="0.0"/>
+  <xacro:property name="imu_y" value="0.0"/>
+  <xacro:property name="imu_z" value="0.0"/>
+  <xacro:property name="gps_x" value="0.0"/>
+  <xacro:property name="gps_y" value="0.0"/>
+  <xacro:property name="gps_z" value="0.0"/>
+
+  <material name="hull_white"><color rgba="0.9 0.9 0.9 1.0"/></material>
+  <material name="deck_grey"><color rgba="0.4 0.4 0.4 1.0"/></material>
+  <material name="sensor_blue"><color rgba="0.1 0.3 0.8 1.0"/></material>
+  <material name="motor_black"><color rgba="0.1 0.1 0.1 1.0"/></material>
+
+  <link name="base_link">
+    <!-- Casco de babor -->
+    <visual>
+      <origin xyz="0 ${(beam - hull_width) / 2} ${-hull_height / 2}"/>
+      <geometry><box size="${hull_length} ${hull_width} ${hull_height}"/></geometry>
+      <material name="hull_white"/>
+    </visual>
+    <!-- Casco de estribor -->
+    <visual>
+      <origin xyz="0 ${-(beam - hull_width) / 2} ${-hull_height / 2}"/>
+      <geometry><box size="${hull_length} ${hull_width} ${hull_height}"/></geometry>
+      <material name="hull_white"/>
+    </visual>
+    <!-- Cubierta -->
+    <visual>
+      <origin xyz="0 0 ${deck_height / 2}"/>
+      <geometry><box size="${hull_length * 0.6} ${beam} ${deck_height}"/></geometry>
+      <material name="deck_grey"/>
+    </visual>
+  </link>
+
+  <xacro:macro name="sensor" params="name x y z">
+    <link name="${name}_link">
+      <visual>
+        <geometry><box size="0.06 0.06 0.03"/></geometry>
+        <material name="sensor_blue"/>
+      </visual>
+    </link>
+    <joint name="${name}_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="${name}_link"/>
+      <origin xyz="${x} ${y} ${z}" rpy="0 0 0"/>
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="motor" params="side y">
+    <link name="motor_${side}_link">
+      <visual>
+        <origin rpy="0 ${pi / 2} 0"/>
+        <geometry><cylinder radius="0.04" length="0.15"/></geometry>
+        <material name="motor_black"/>
+      </visual>
+    </link>
+    <joint name="motor_${side}_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="motor_${side}_link"/>
+      <origin xyz="${motor_x} ${y} ${-hull_height}" rpy="0 0 0"/>
+    </joint>
+  </xacro:macro>
+
+  <xacro:sensor name="imu" x="${imu_x}" y="${imu_y}" z="${imu_z}"/>
+  <xacro:sensor name="gps" x="${gps_x}" y="${gps_y}" z="${gps_z}"/>
+  <xacro:motor side="left" y="${motor_separation / 2}"/>
+  <xacro:motor side="right" y="${-motor_separation / 2}"/>
+
+</robot>
