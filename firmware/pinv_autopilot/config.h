@@ -63,6 +63,21 @@
 #define CMD_VEL_TIMEOUT_MS  500
 
 // -----------------------------------------------------
+// GPS RTK ArduSimple simpleRTK2B (u-blox ZED-F9P, ROVER)
+//
+// Datos por UART1 del simpleRTK2B -> UART1 del ESP32. Las correcciones
+// RTCM le llegan por radio a su UART2 (no se toca). IOREF a 3.3 V.
+// -----------------------------------------------------
+// PENDIENTE: confirmar los pines. GPIO18 NO se puede usar (es el SCL de la IMU).
+#define PIN_GPS_RX      16      // RX del ESP32 <- TX1 del simpleRTK2B
+#define PIN_GPS_TX      17      // TX del ESP32 -> RX1 del simpleRTK2B
+#define GPS_BAUD        38400   // UART1 del ZED-F9P por defecto (si no conecta: 115200)
+#define GPS_NAV_HZ      5       // soluciones por segundo (UBX-NAV-PVT)
+#define GPS_RETRY_MS    1000    // reintento de gnss.begin()
+#define GPS_BEGIN_WAIT_MS 250   // espera máx. de cada begin(); bloquea loop()
+#define GPS_TIMEOUT_MS  3000    // sin PVT en este tiempo -> reconectar
+
+// -----------------------------------------------------
 // micro-ROS
 // -----------------------------------------------------
 #define ROS_NODE_NAME           "esp32s3_imu_node"

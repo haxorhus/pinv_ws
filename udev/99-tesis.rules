@@ -1,0 +1,8 @@
+# ASV PINV — nombres fijos para los puertos serie
+# ID_MM_DEVICE_IGNORE: que ModemManager no sondee estos puertos con comandos AT.
+
+# GPS RTK ArduSimple simpleRTK2B (u-blox ZED-F9P), puerto "USB GPS"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1546", ATTRS{idProduct}=="01a9", SYMLINK+="gps_rtk", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1"
+
+# ESP32-S3 (USB nativo, USB-Serial-JTAG). Se filtra por número de serie de esta placa.
+SUBSYSTEM=="tty", ATTRS{idVendor}=="303a", ATTRS{idProduct}=="1001", ATTRS{serial}=="20:6E:F1:FB:73:2C", SYMLINK+="esp32", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1"

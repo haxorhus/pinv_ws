@@ -12,6 +12,7 @@
 #include <rosidl_runtime_c/string_functions.h>
 
 #include <sensor_msgs/msg/imu.h>
+#include <sensor_msgs/msg/nav_sat_fix.h>
 #include <geometry_msgs/msg/twist.h>
 
 #include "esp_timer.h"
@@ -26,14 +27,16 @@ static rcl_allocator_t allocator;
 static rclc_support_t support;
 static rcl_node_t node;
 static rcl_publisher_t imuPublisher;
+static rcl_publisher_t gpsPublisher;
 static rcl_subscription_t cmdVelSubscriber;
 static rclc_executor_t executor;
 
 static sensor_msgs__msg__Imu imuMsg;
+static sensor_msgs__msg__NavSatFix gpsMsg;
 static geometry_msgs__msg__Twist cmdVelMsg;
 
 // Qué entidades se crearon, para destruir solo esas.
-static bool supportOk, nodeOk, pubOk, subOk, executorOk;
+static bool supportOk, nodeOk, pubOk, gpsPubOk, subOk, executorOk;
 
 enum RosState { WAITING_AGENT, AGENT_CONNECTED };
 static RosState state = WAITING_AGENT;
@@ -101,11 +104,12 @@ static void destroyEntities()
 
     if (executorOk) rclc_executor_fini(&executor);
     if (subOk)      (void)rcl_subscription_fini(&cmdVelSubscriber, &node);
+    if (gpsPubOk)   (void)rcl_publisher_fini(&gpsPublisher, &node);
     if (pubOk)      (void)rcl_publisher_fini(&imuPublisher, &node);
     if (nodeOk)     (void)rcl_node_fini(&node);
     if (supportOk)  (void)rclc_support_fini(&support);
 
-    supportOk = nodeOk = pubOk = subOk = executorOk = false;
+    supportOk = nodeOk = pubOk = gpsPubOk = subOk = executorOk = false;
     clockSynced = false;
 }
 
@@ -124,6 +128,12 @@ static bool createEntities()
                 ROSIDL_GET_MSG_TYPE_SUPPORT(sensor_msgs, msg, Imu),
                 "/imu/data") == RCL_RET_OK;
     if (!pubOk) return false;
+
+    gpsPubOk = rclc_publisher_init_best_effort(
+                &gpsPublisher, &node,
+                ROSIDL_GET_MSG_TYPE_SUPPORT(sensor_msgs, msg, NavSatFix),
+                "/gps/fix") == RCL_RET_OK;
+    if (!gpsPubOk) return false;
 
     subOk = rclc_subscription_init_default(
                 &cmdVelSubscriber, &node,
@@ -161,6 +171,17 @@ void rosInit()
         imuMsg.angular_velocity_covariance[4 * i] = gyroVar[i];
         imuMsg.linear_acceleration_covariance[4 * i] = accVar[i];
     }
+
+    sensor_msgs__msg__NavSatFix__init(&gpsMsg);
+    rosidl_runtime_c__String__assign(&gpsMsg.header.frame_id, "gps_link");
+    gpsMsg.status.service = sensor_msgs__msg__NavSatStatus__SERVICE_GPS |
+                            sensor_msgs__msg__NavSatStatus__SERVICE_GLONASS |
+                            sensor_msgs__msg__NavSatStatus__SERVICE_COMPASS |
+                            sensor_msgs__msg__NavSatStatus__SERVICE_GALILEO;   // 15
+    gpsMsg.position_covariance_type =
+        sensor_msgs__msg__NavSatFix__COVARIANCE_TYPE_DIAGONAL_KNOWN;
+    for (int i = 0; i < 9; i++)
+        gpsMsg.position_covariance[i] = 0.0;
 
     geometry_msgs__msg__Twist__init(&cmdVelMsg);
 
@@ -258,4 +279,37 @@ void rosPublishImu(const ImuSample &s)
         destroyEntities();
         state = WAITING_AGENT;
     }
+}
+
+void rosPublishGps(const GpsSample &s)
+{
+    if (!rosReady())
+        return;
+
+    // Mismo reloj que /imu/data (para el EKF). El stamp es el de
+    // recepción: el PVT llega ~25-40 ms después de la medición (UART a
+    // 38400 + cálculo del receptor).
+    const int64_t ns = nowNs();
+    gpsMsg.header.stamp.sec = (int32_t)(ns / 1000000000LL);
+    gpsMsg.header.stamp.nanosec = (uint32_t)(ns % 1000000000LL);
+
+    const bool fix = s.fixOk && s.fixType >= 2 && s.fixType <= 4;   // 5 = solo tiempo
+    if (!fix)
+        gpsMsg.status.status = sensor_msgs__msg__NavSatStatus__STATUS_NO_FIX;
+    else if (s.carrSoln > 0)
+        gpsMsg.status.status = sensor_msgs__msg__NavSatStatus__STATUS_GBAS_FIX;  // RTK float/fixed
+    else
+        gpsMsg.status.status = sensor_msgs__msg__NavSatStatus__STATUS_FIX;
+
+    gpsMsg.latitude  = s.lat;
+    gpsMsg.longitude = s.lon;
+    gpsMsg.altitude  = s.alt;
+
+    gpsMsg.position_covariance[0] = (double)s.hAcc * s.hAcc;
+    gpsMsg.position_covariance[4] = (double)s.hAcc * s.hAcc;
+    gpsMsg.position_covariance[8] = (double)s.vAcc * s.vAcc;
+
+    // Un fallo suelto del GPS no cuenta para detectar desconexión:
+    // eso lo decide la IMU, que publica 10 veces más seguido.
+    (void)rcl_publish(&gpsPublisher, &gpsMsg, NULL);
 }

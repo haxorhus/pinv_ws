@@ -5,10 +5,14 @@
 //    calibracion_imu y estima la orientación con Madgwick (50 Hz).
 //  - Publica /imu/data (sensor_msgs/Imu, ENU, best-effort) por micro-ROS
 //    sobre USB serial, con timestamp sincronizado con el agente.
+//  - Lee el GPS RTK (ZED-F9P) por UART1 y publica /gps/fix (NavSatFix,
+//    5 Hz) con el mismo reloj que la IMU.
 //  - Escucha /cmd_vel y mueve dos ESC diferenciales sin reversa.
 //    Sin agente o sin /cmd_vel por 500 ms, los motores van a neutro.
 //
-// Parámetros: config.h. Módulos: imu, motors, ros_comm.
+// Parámetros: config.h. Módulos: imu, gps, motors, ros_comm.
+// Librerías: micro_ros_arduino, SparkFun ICM-20948, MadgwickAHRS,
+//            SparkFun u-blox GNSS v3.
 //
 // LED: apagado = esperando agente, encendido = conectado y sincronizado,
 //      parpadeo lento = falta la calibración, rápido = falla de LEDC.
@@ -16,6 +20,7 @@
 
 #include "config.h"
 #include "imu.h"
+#include "gps.h"
 #include "motors.h"
 #include "ros_comm.h"
 
@@ -45,6 +50,7 @@ void setup()
         blinkForever(500);
 
     imuInit();
+    gpsInit();
     rosInit();
 }
 
@@ -65,6 +71,12 @@ void loop()
         if (imuUpdate(sample))
             rosPublishImu(sample);
     }
+
+    // GPS: se lee en cada vuelta (no bloquea) y se publica cuando llega
+    // un PVT nuevo (GPS_NAV_HZ).
+    GpsSample fix;
+    if (gpsUpdate(fix))
+        rosPublishGps(fix);
 
     motorsUpdate(rosReady());
 

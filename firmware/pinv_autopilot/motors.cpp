@@ -17,15 +17,23 @@ static bool haveCmd = false;
 
 static uint16_t leftUs  = ESC_NEUTRAL_US;
 static uint16_t rightUs = ESC_NEUTRAL_US;
+static uint16_t leftWrittenUs  = 0;          // último valor escrito al LEDC (0 = nunca)
+static uint16_t rightWrittenUs = 0;
 
 static uint32_t usToDuty(uint16_t us)
 {
     return ((uint64_t)us * PWM_MAX) / ESC_PERIOD_US;
 }
 
-static void writeEsc(uint8_t pin, uint16_t us)
+// Escribe el ESC solo si el pulso cambió: con el core 3.x, ledcWrite a
+// 50 Hz puede esperar al fin del período (hasta 20 ms) y, llamado en cada
+// vuelta de loop(), frenaba todo el lazo (IMU publicando a ~10 Hz).
+static void writeEsc(uint8_t pin, uint16_t us, uint16_t &writtenUs)
 {
     us = constrain(us, ESC_NEUTRAL_US, ESC_MAX_US);
+    if (us == writtenUs)
+        return;
+    writtenUs = us;
     ledcWrite(pin, usToDuty(us));
 }
 
@@ -70,8 +78,8 @@ void motorsStop()
 {
     leftMps = rightMps = 0.0f;
     leftUs = rightUs = ESC_NEUTRAL_US;
-    writeEsc(PIN_ESC_LEFT, leftUs);
-    writeEsc(PIN_ESC_RIGHT, rightUs);
+    writeEsc(PIN_ESC_LEFT, leftUs, leftWrittenUs);
+    writeEsc(PIN_ESC_RIGHT, rightUs, rightWrittenUs);
 }
 
 void motorsUpdate(bool agentConnected)
@@ -89,8 +97,8 @@ void motorsUpdate(bool agentConnected)
 
     leftUs  = speedToUs(leftMps);
     rightUs = speedToUs(rightMps);
-    writeEsc(PIN_ESC_LEFT, leftUs);
-    writeEsc(PIN_ESC_RIGHT, rightUs);
+    writeEsc(PIN_ESC_LEFT, leftUs, leftWrittenUs);
+    writeEsc(PIN_ESC_RIGHT, rightUs, rightWrittenUs);
 }
 
 uint16_t motorsLeftUs()  { return leftUs; }
